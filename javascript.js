@@ -1,3 +1,5 @@
+// @TODO: Implement functionality to add 2 digit numbers like 10, 11, 12, etc.
+
 function add(a, b) {
   return a + b;
 }
@@ -25,23 +27,19 @@ function operate(numberA, operator, numberB) {
     case "+":
       value = add(numberA, numberB);
       displayResult(`${numberA} ${operator} ${numberB} = ${value}`);
-      value = 0;
-      break;
+      return value;
     case "-":
       value = subtract(numberA, numberB);
       displayResult(`${numberA} ${operator} ${numberB} = ${value}`);
-      value = 0;
-      break;
+      return value;
     case "*":
       value = multiply(numberA, numberB);
       displayResult(`${numberA} ${operator} ${numberB} = ${value}`);
-      value = 0;
-      break;
+      return value;
     case "/":
       value = divide(numberA, numberB);
       displayResult(`${numberA} ${operator} ${numberB} = ${value}`);
-      value = 0;
-      break;
+      return value;
   }
 }
 // Default value
@@ -93,8 +91,8 @@ multiplyButton.addEventListener("click", () => {
 const equalButton = document.querySelector("#equals");
 equalButton.addEventListener("click", () => {
   console.log({ numberA }, { operator }, { numberB });
-  operate(numberA, operator, numberB);
-  valuesReset();
+  value = operate(numberA, operator, numberB);
+  numberA = value;
 });
 
 //  Digits
