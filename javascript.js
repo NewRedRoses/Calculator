@@ -43,105 +43,121 @@ function operate(numberA, operator, numberB) {
   }
 }
 // Default value
-displayResult("1+1=2");
-let numberA = undefined,
+displayResult("Press any numbers & operations");
+let numberA = "",
   operator = undefined,
-  numberB = undefined;
+  numberB = "";
 
 function valueInitializer(number) {
-  if (numberA == undefined) {
-    numberA = number;
+  if (operator == undefined) {
+    numberA += number;
   } else {
-    numberB = number;
+    numberB += number;
   }
 }
 
 function valuesReset() {
-  numberA = undefined;
+  numberA = "";
   operator = undefined;
-  numberB = undefined;
+  numberB = "";
 }
 
 // DOM button manipulations
 const clearButton = document.querySelector("#clear");
 clearButton.addEventListener("click", () => {
-  displayResult("Reload the page lol");
+  displayResult("");
+  valuesReset();
 });
 
 const divideButton = document.querySelector("#divide");
 divideButton.addEventListener("click", () => {
   operator = "/";
+  displayResult("/");
 });
 
 const addButton = document.querySelector("#add");
 addButton.addEventListener("click", () => {
   operator = "+";
+  displayResult("+");
 });
 
 const subtractButton = document.querySelector("#subtract");
 subtractButton.addEventListener("click", () => {
   operator = "-";
+  displayResult("-");
 });
 
 const multiplyButton = document.querySelector("#multiply");
 multiplyButton.addEventListener("click", () => {
   operator = "*";
+  displayResult("*");
 });
 
 const equalButton = document.querySelector("#equals");
 equalButton.addEventListener("click", () => {
   console.log({ numberA }, { operator }, { numberB });
-  value = operate(numberA, operator, numberB);
-  numberA = value;
+  value = operate(Number(numberA), operator, Number(numberB));
+  numberA = String(value);
+  numberB = "";
 });
 
 //  Digits
 const oneButton = document.querySelector("#one");
 oneButton.addEventListener("click", () => {
-  valueInitializer(1);
+  valueInitializer("1");
+  displayResult("1");
 });
 
 const twoButton = document.querySelector("#two");
 twoButton.addEventListener("click", () => {
-  valueInitializer(2);
+  valueInitializer("2");
+  displayResult("2");
 });
 
 const threeButton = document.querySelector("#three");
 threeButton.addEventListener("click", () => {
-  valueInitializer(3);
+  valueInitializer("3");
+  displayResult("3");
 });
 
 const fourButton = document.querySelector("#four");
 fourButton.addEventListener("click", () => {
-  valueInitializer(4);
+  valueInitializer("4");
+  displayResult("4");
 });
 
 const fiveButton = document.querySelector("#five");
 fiveButton.addEventListener("click", () => {
-  valueInitializer(5);
+  valueInitializer("5");
+  displayResult("5");
 });
 
 const sixButton = document.querySelector("#six");
 sixButton.addEventListener("click", () => {
-  valueInitializer(6);
+  valueInitializer("6");
+  displayResult("6");
 });
 
 const sevenButton = document.querySelector("#seven");
 sevenButton.addEventListener("click", () => {
-  valueInitializer(7);
+  valueInitializer("7");
+  displayResult("7");
 });
 
 const eightButton = document.querySelector("#eight");
 eightButton.addEventListener("click", () => {
-  valueInitializer(8);
+  valueInitializer("8");
+  displayResult("8");
 });
 
 const nineButton = document.querySelector("#nine");
 nineButton.addEventListener("click", () => {
-  valueInitializer(9);
+  valueInitializer("9");
+  displayResult("9");
 });
 
 const zeroButton = document.querySelector("#zero");
 zeroButton.addEventListener("click", () => {
-  valueInitializer(0);
+  valueInitializer("0");
+  displayResult("0");
 });
