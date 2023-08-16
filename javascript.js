@@ -1,5 +1,3 @@
-// @TODO: Implement functionality to add 2 digit numbers like 10, 11, 12, etc.
-
 function add(a, b) {
   return a + b;
 }
@@ -16,8 +14,8 @@ function divide(a, b) {
   return a / b;
 }
 
+const displaySelector = document.querySelector("#display");
 function displayResult(displayValue) {
-  const displaySelector = document.querySelector("#display");
   displaySelector.innerText = `${displayValue}`;
 }
 
@@ -62,6 +60,14 @@ function valuesReset() {
   numberB = "";
 }
 
+// function isCompleteOperation() {
+//   let conditional = false;
+//   if (numberA != "" && operator != undefined && numberB != "") {
+//     conditional = true;
+//   }
+//   return "Complete operation: " + conditional;
+// }
+
 // DOM button manipulations
 const clearButton = document.querySelector("#clear");
 clearButton.addEventListener("click", () => {
@@ -97,6 +103,9 @@ const equalButton = document.querySelector("#equals");
 equalButton.addEventListener("click", () => {
   console.log({ numberA }, { operator }, { numberB });
   value = operate(Number(numberA), operator, Number(numberB));
+  if (isNaN(value)) {
+    displayResult("Not a Number, press C");
+  }
   numberA = String(value);
   numberB = "";
 });
